@@ -21,10 +21,12 @@ module ExactTargetSDK
   autoload :Result, 'exact_target_sdk/result'
   autoload :RetrieveResponse, 'exact_target_sdk/retrieve_response'
   autoload :RetrieveResult, 'exact_target_sdk/retrieve_result'
+  autoload :SaveOption, 'exact_target_sdk/save_option'
   autoload :SimpleFilterPart, 'exact_target_sdk/simple_filter_part'
   autoload :Subscriber, 'exact_target_sdk/subscriber'
   autoload :TriggeredSend, 'exact_target_sdk/triggered_send'
   autoload :TriggeredSendDefinition, 'exact_target_sdk/triggered_send_definition'
+  autoload :UpdateOptions, 'exact_target_sdk/update_options'
   autoload :UpdateResponse, 'exact_target_sdk/update_response'
   autoload :UpdateResult, 'exact_target_sdk/update_result'
 

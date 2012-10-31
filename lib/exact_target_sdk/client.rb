@@ -115,14 +115,14 @@ class Client
   #   InvalidAPIObject  if any of the provided objects don't pass validation
   #
   # Returns an UpdateResponse object.
-  def Update(*args)
-    # TODO: implement and accept UpdateOptions
+  def Update(options)
 
-    api_objects = args
-
+    api_objects = options[:properties]
     response = execute_request 'Update' do |xml|
       xml.UpdateRequest do
-        xml.Options  # TODO: support UpdateOptions
+        xml.Options  "xsi:type" => options[:options].type_name do
+          options[:options].render!(xml)
+        end
 
         api_objects.each do |api_object|
           xml.Objects "xsi:type" => api_object.type_name do
