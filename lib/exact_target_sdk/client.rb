@@ -60,7 +60,11 @@ class Client
         end
       end
     end
-
+    unless Rails.env.production?
+      Rails.logger.error('---\ BEGIN ET RESPONSE ---')
+      Rails.logger.error(response.to_xml) 
+      Rails.logger.error('---\ END ET RESPONSE ---')
+    end
     CreateResponse.new(response)
   end
 
@@ -257,6 +261,11 @@ class Client
 
             xml.s :Body do
               yield(xml)
+              unless Rails.env.production?
+                Rails.logger.error('---\ BEGIN ET REQUEST ---')
+                Rails.logger.error(xml.to_s) 
+                Rails.logger.error('---\ END ET REQUEST ---')
+              end
             end
           end
         end
