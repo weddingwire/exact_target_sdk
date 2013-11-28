@@ -22,7 +22,10 @@ class UnknownError < Error
 
   def initialize(e)
     @wrapped_exception = e
+    super(e.message)
+    self.set_backtrace(e.backtrace)
   end
+
 end
 
 # Indicates validation failed on an APIObject, which is referenced

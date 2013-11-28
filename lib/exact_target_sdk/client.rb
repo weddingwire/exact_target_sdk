@@ -61,9 +61,9 @@ class Client
       end
     end
     unless Rails.env.production?
-      Rails.logger.error('---\ BEGIN ET RESPONSE ---')
-      Rails.logger.error(response.to_xml) 
-      Rails.logger.error('---\ END ET RESPONSE ---')
+      Rails.logger.debug('---\ BEGIN ET RESPONSE ---')
+      Rails.logger.debug(response.to_xml) 
+      Rails.logger.debug('---\ END ET RESPONSE ---')
     end
     CreateResponse.new(response)
   end
